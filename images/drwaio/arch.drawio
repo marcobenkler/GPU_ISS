@@ -1,0 +1,19 @@
+<mxfile host="65bd71144e">
+    <diagram id="-s7eZN5NZj1s3R8x0vXm" name="Page-1">
+        <mxGraphModel dx="1010" dy="1460" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="xzLh5lqJTxJw3Ua9NKF2-3" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=16;html=1;whiteSpace=wrap;fillColor=none;dashed=1;dashPattern=6 4;strokeColor=#8E99AB;strokeWidth=1.5;fontColor=#3B82F6;fontFamily=Helvetica;fontSize=17;align=left;verticalAlign=top;spacingLeft=16;spacingTop=10;container=1;collapsible=0;" value="&lt;b style=&quot;color: rgb(59, 130, 246);&quot;&gt;GPU&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="880" width="960" x="720" y="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="QgB-5ZQ_RTO8HlrPkC3m-2" parent="xzLh5lqJTxJw3Ua9NKF2-3" style="rounded=1;absoluteArcSize=1;arcSize=16;whiteSpace=wrap;html=1;fillColor=#16A34A;strokeColor=#4ADE80;strokeWidth=1.5;fontColor=#FFFFFF;fontFamily=Helvetica;fontSize=15;spacing=6;" value="&lt;b style=&quot;color: rgb(255, 255, 255);&quot;&gt;Memory&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px; color: rgb(237, 237, 240);&quot;&gt;Several mem regions&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 12px; color: rgb(237, 237, 240);&quot;&gt;load(8/16/32) and store(8/16/32)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+                    <mxGeometry height="80" width="200" x="40" y="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="QgB-5ZQ_RTO8HlrPkC3m-3" parent="xzLh5lqJTxJw3Ua9NKF2-3" style="rounded=1;absoluteArcSize=1;arcSize=16;whiteSpace=wrap;html=1;fillColor=#D97706;strokeColor=#FBBF24;strokeWidth=1.5;fontColor=#FFFFFF;fontFamily=Helvetica;fontSize=15;spacing=6;" value="&lt;b style=&quot;color:#FFFFFF&quot;&gt;x&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:12px;color:#EDEDF0&quot;&gt;x&lt;/span&gt;" vertex="1">
+                    <mxGeometry height="100" width="200" x="40" y="180" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
