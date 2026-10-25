@@ -1,0 +1,9 @@
+= Xgpu: GPU Extension for RISC-V
+Marco Benkler
+:doctype: book
+:toc: left
+:sectnums:
+:imagesdir: images
+
+== Operation
+include::instr/barrier.adoc[]

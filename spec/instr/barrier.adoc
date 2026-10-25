@@ -1,0 +1,48 @@
+[[barrier]]
+=== BAR.SYNC
+
+Synchronise a group of warps inside a block
+
+.Encoding of BAR.SYNC
+[wavedrom, barrier-encoding ,svg]
+....
+{reg: [
+  {bits: 7, name: 'opcode', attr: 'custom-0'},
+  {bits: 5, name: 'rd',     attr: 0},
+  {bits: 3, name: 'funct3', attr: 0},
+  {bits: 5, name: 'rs1',    attr: 'barrier id'},
+  {bits: 5, name: 'rs2',    attr: 'count'},
+  {bits: 7, name: 'funct7', attr: 1}
+]}
+....
+
+.Fields of BAR.SYNC
+[cols="1m,1,1m,5", options="header"]
+|===
+| Field | Bits | Value | Meaning
+
+| opcode | 6:0   | 0001011 | custom-0, opcode of all xgpu-commands. Specified by RISC-V.
+| rd     | 11:7  | 00000   | Reserved, has to be `x0`. Different values trigger an illegal-instruction-exception.
+| funct3 | 14:12 | 000     | Chooses `BAR.SYNC` in the barrier commands.
+| rs1    | 19:15 | _reg_   | Register with barrier id to enable multiple barriers at once.
+| rs2    | 24:20 | _reg_   | Register with count of how many warps are required.
+| funct7 | 31:25 | 0000001 | Barrier group in custom-0.
+|===
+
+==== Functionality
+A warp that executes `BAR.SYNC` increases the counter of the barrier  
+`X[rs1]` by one and is held, until the counter reaches the value in `X[rs2]`. All warps are then released and the counter is set back to 0 for supporting loops. `rs1` and `rs2` have to be the same for all threads, else it's undefined bahaviour
+
+==== Edge Cases
+The counter can't be higher than the number of wards and is higher than `0`. Else it's undefined behaviour.
+
+A warp that is held by two barriers is released, only if both barriers release it.
+
+Store: A warp is raising the count by 1, only if the store data + address is in the store buffer
+
+Divergence: If the warp is still in diverged state and reaches the barrier, that's undefined behaviour
+
+
+==== Example 
+*Double Buffering*: In the initializing phase, all warps load data in the shared memory, not all with the same pace. Warp A loads the first half, warp B the second one. If warp A finishes faster, it would start computing with data, warp B has yet not written.  +
+With barriers the warps wait for all data to be written.

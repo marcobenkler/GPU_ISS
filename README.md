@@ -26,3 +26,16 @@ Methods: compute register vals, calls load and store etc
 ### Tracer
 Attributes: enable
 Methodes: trace_cur_res
+
+
+### Lockstep Required
+Lockstep is required, else it's just testing warps isolated and in parallel. There won't be the interesting bugs
+
+For this, the ISS just need's the commited warp_id and the seq_id, so it can start it's warp and the right order and compare both results
+
+Each instruction get's a seq_id so it doesn't matter if add then load or load then add commits, which is important for latency hiding, the reason for GPU
+- Plus is, that I can check that each instr is submitted once
+- Note store is commited, when written in buffer. From this point it cannot be changed, check for alignment etc is done before buffer
+
+### ISA
+Shared memory access is only valid, if barrier was set
